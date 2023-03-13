@@ -1,0 +1,70 @@
+#%RAML 1.0
+title: RetrieveTravelOnTipRoutesAndSchedule-SAPI
+description: This api will retrieve routes and schedules from Travel On Tip System
+
+traits:
+  transaction-id: !include /libraries/common/traits/transactionId-header.raml
+  departureLocation-code: !include /libraries/common/traits/queryParam-departureLocation.raml
+  destinationLocation-code: !include /libraries/common/traits/queryParam-destinationLocation-code.raml
+
+types:
+  errordatatype: !include /libraries/common/dataTypes/CommonErrorResponseDataType.raml
+  getRoutesResponse: !include /libraries/routes/dataTypes/getRoutes200Response-dataType.raml
+  getScheduleResponse: !include /libraries/schedules/dataTypes/getSchedules-200Response-dataTypes.raml
+
+/{transportType}:
+  /{transportCompany}:
+    /routes:
+      get:
+        is:
+          - transaction-id           
+        responses:
+          200:
+            body:
+              application/json:
+                type: getRoutesResponse
+                example: !include /libraries/routes/examples/getRoutes200ResponseExample.json
+                  
+          400:
+            body:
+              application/json:
+                type: errordatatype
+                example: !include /libraries/common/examples/400ResponseExample.json
+          404:
+            body:
+              application/json:
+                type: errordatatype
+                example: !include /libraries/common/examples/404ResponseExample.json                  
+          500:
+            body:
+              application/json:
+                type: errordatatype
+                example: !include /libraries/common/examples/500ResponseExample.json 
+                  
+    /schedules:
+      get:
+        is:
+          - transaction-id
+          - departureLocation-code
+          - destinationLocation-code
+        responses:
+          200:
+            body:
+              application/json:
+                type: getScheduleResponse  
+                example: !include /libraries/schedules/examples/getSchedules200ResponseExample.json                                    
+          400:
+            body:
+              application/json:
+                type: errordatatype
+                example: !include /libraries/common/examples/400ResponseExample.json
+          404:
+            body:
+              application/json:
+                type: errordatatype
+                example: !include /libraries/common/examples/404ResponseExample.json
+          500:
+            body:
+              application/json:
+                type: errordatatype
+                example: !include /libraries/common/examples/500ResponseExample.json  

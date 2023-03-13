@@ -1,0 +1,18 @@
+[
+	{		
+		"originLocation": {
+			"locationCode": "PUN-SG"
+			},
+		"destinationLocation": {
+			"locationCode": "KLG-MY"
+			}
+	},
+	{			
+		"originLocation": {
+			"locationCode": "PUN-SG"
+			},
+		"destinationLocation": {
+			"locationCode": "KLG-MY"
+      }
+  }
+]

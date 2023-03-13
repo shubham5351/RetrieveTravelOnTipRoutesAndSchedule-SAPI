@@ -1,0 +1,26 @@
+[
+  {
+    "availableSeats": 20,
+    "departureDateTime": "2022-02-23T20:45:30",
+    "travelRoute": {
+      "destinationLocation": {
+        "locationCode": "KLG-MY"
+      },
+      "originLocation": {
+        "locationCode": "PUN-SG"
+      }
+    }
+  },
+  {
+    "availableSeats": 30,
+    "departureDateTime": "2022-02-23T20:45:30",
+    "travelRoute": {
+      "destinationLocation": {
+        "locationCode": "KLG-MY"
+      },
+      "originLocation": {
+        "locationCode": "PUN-SG"
+      }
+    }
+  }
+]
